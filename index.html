@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dhaaniya ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd1dc, #ffe6eb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+    text-align: center;
+    width: 90%;
+    max-width: 360px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: pop 1s ease;
+    position: relative;
+  }
+
+  h1 {
+    color: #d6336c;
+  }
+
+  p {
+    color: #444;
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 12px 26px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  .yes {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  .no {
+    background: #e0e0e0;
+    color: #333;
+    position: absolute;
+  }
+
+  .msg {
+    display: none;
+    margin-top: 15px;
+    font-size: 16px;
+    color: #a61e4d;
+    animation: fadeIn 1s ease;
+  }
+
+  .ending {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff6f91, #ff9aa2);
+    color: white;
+    text-align: center;
+    padding: 40px 22px;
+    animation: fadeIn 1.5s ease;
+    overflow-y: auto;
+  }
+
+  .ending h2 {
+    font-size: 30px;
+    margin-top: 30px;
+  }
+
+  .ending p {
+    font-size: 17px;
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+
+  .heart {
+    position: fixed;
+    font-size: 20px;
+    animation: floatUp 5s linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes pop {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <h1>Dhaaniya ❤️</h1>
+  <p>Will you be my Valentine?</p>
+
+  <button class="btn yes" onclick="showLove()">Yes 😊</button>
+  <button class="btn no" onmouseover="runAway(this)">No 🙃</button>
+
+  <div class="msg" id="msg1">
+    You make my heart feel lighter without even trying.
+  </div>
+
+  <div class="msg" id="msg2">
+    With you, even ordinary days feel warm and special.
+  </div>
+
+  <div class="msg" id="msg3">
+    I don’t want perfect — I just want you.
+  </div>
+</div>
+
+<!-- FINAL LETTER -->
+<div class="ending" id="ending">
+  <h2>Dhaaniya 💍</h2>
+  <p>
+    From Valentine to <b>Wife</b><br><br>
+
+    Dhaaniya, you are always mine, and I am always yours 😚<br>
+    My heart chose you, and it will choose you every single day of my life.<br><br>
+
+    I don’t want anyone else — I want to marry you, and only you 😋<br>
+    I promise to take care of you and stand by you till the very last day.<br><br>
+
+    I want to laugh with you on happy days,<br>
+    hold you close on hard days,<br>
+    and build a beautiful life together, hand in hand 🫶🏻<br><br>
+
+    I don’t need a perfect world,<br>
+    I just need you in my world 😍🫠<br><br>
+
+    Loveeeee youuuuuu soooooooo soooooooo sooooo muchhhhhh,<br>
+    Dhaaniya 😚😍🫠😋🫶🏻❤️
+  </p>
+</div>
+
+<audio id="song">
+  <source src="https://files.catbox.moe/7y2k5d.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function showLove() {
+  document.getElementById("song").play();
+
+  document.getElementById("msg1").style.display = "block";
+  setTimeout(() => document.getElementById("msg2").style.display = "block", 2000);
+  setTimeout(() => document.getElementById("msg3").style.display = "block", 4000);
+
+  setTimeout(() => {
+    document.getElementById("card").style.display = "none";
+    document.getElementById("ending").style.display = "block";
+  }, 7000);
+
+  for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+}
+
+function runAway(btn) {
+  btn.style.top = Math.random() * 70 + "%";
+  btn.style.left = Math.random() * 70 + "%";
+}
+</script>
+
+</body>
+</html>
